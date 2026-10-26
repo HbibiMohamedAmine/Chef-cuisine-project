@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 145 63% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 145 40% 94%;
+    --accent-foreground: 145 63% 22%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 63% 32%;
+    --success-foreground: 0 0% 100%;
+    --warning: 32 95% 44%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 145 63% 26%;
+    --radius: 0.6rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-foreground antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Chiffres alignés dans les tableaux financiers */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply rounded-lg border border-slate-200 bg-white shadow-sm;
+  }
+
+  .input-base {
+    @apply h-10 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm
+           text-slate-900 shadow-sm transition-colors
+           placeholder:text-slate-400
+           focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20
+           disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .label-base {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+
+  .table-base {
+    @apply w-full text-sm;
+  }
+
+  .table-base thead th {
+    @apply sticky top-0 z-10 whitespace-nowrap border-b border-slate-200 bg-slate-50
+           px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+
+  .table-base tbody td {
+    @apply border-b border-slate-100 px-3 py-2.5 text-slate-700;
+  }
+
+  .table-base tbody tr:hover {
+    @apply bg-slate-50/70;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium
+           text-slate-300 transition-colors hover:bg-white/10 hover:text-white;
+  }
+
+  .nav-link-active {
+    @apply bg-white/15 text-white shadow-sm;
+  }
+}
+
+/* Barres de défilement discrètes (écrans d'ordinateur) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  background-clip: content-box;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.18s ease-out;
+}
+
+/* Impression */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "chef-cuisine-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chef Cuisine Manager - Gestion integree pour un restaurant (Tunisie, DT)",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "npm run build && node server/index.js",
+    "dev:server": "node --watch server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "db:migrate": "node server/db/migrate.js",
+    "db:seed": "node server/db/seed.js",
+    "db:reset": "node server/db/migrate.js --reset && node server/db/seed.js",
+    "backup": "node server/services/backup.js --now"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "express": "^4.21.2",
+    "cookie-parser": "^1.4.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "recharts": "^2.13.3",
+    "lucide-react": "^0.468.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.5",
+    "class-variance-authority": "^0.7.1",
+    "pdfkit": "^0.15.2",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^5.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11",
+    "typescript": "^5.6.3",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  }
+}
