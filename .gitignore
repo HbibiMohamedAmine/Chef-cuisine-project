@@ -1,0 +1,9 @@
+﻿**/node_modules/
+**/dist/
+**/build/
+user/.cache/
+**/.cache/
+**/.electron/
+.env
+.env.*
+npm-debug.log*
